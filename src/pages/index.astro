@@ -60,12 +60,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
     </main>
     <Footer />
     <script>
-      import { log } from 'astro/dist/core/logger/core'
-
       declare global {
         interface Window {
           netlifyIdentity: any
         }
+      }
+
+      if (window.location.hash.includes('_token=')) {
+        window.location.replace('/admin/' + window.location.hash)
       }
 
       if (window.netlifyIdentity) {
