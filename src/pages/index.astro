@@ -63,6 +63,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
           netlifyIdentity: any
         }
       }
+      if (window.location.hash.includes('_token=')) {
+        window.location.replace('/admin/' + window.location.hash)
+      }
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user: any) => {
@@ -73,10 +76,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
           }
         })
       }
-
-      if (window.location.hash.includes('_token=')) {
-      window.location.replace('/admin/' + window.location.hash)
-    }
     </script>
   </body>
 </html>
