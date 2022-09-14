@@ -7,8 +7,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  </head><body>
+  <head> </head><body>
     <Header title={SITE_TITLE} />
     <main>
       <h1>🧑‍🚀 Hello, Astronaut!</h1>
@@ -74,6 +73,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
           }
         })
       }
+
+      if (window.location.hash.includes('_token=')) {
+      window.location.replace('/admin/' + window.location.hash)
+    }
     </script>
   </body>
 </html>
